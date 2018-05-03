@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="one" class="model.One" init-method="init" destroy-method="destroy">
+        <constructor-arg value="One name"/>
+        <property name="city" value="Kiev"/>
+    </bean>
+
+    <bean id="two" class="model.Two" init-method="init" lazy-init="true">
+        <constructor-arg value="Two name"/>
+    </bean>
+
+    <bean id="three" class="model.Three" init-method="init">
+        <constructor-arg value="Three name"/>
+    </bean>
+
+    <bean id="helper" class="model.Helper">
+        <property name="name" value="Helper"/>
+        <property name="role" ref="role"/>
+    </bean>
+
+    <bean id="role" class="model.Role">
+        <property name="name" value="ADMIN HELPER"/>
+    </bean>
+
+
+    <bean id="data" class="model.Data">
+        <property name="url" value="http://blablabla"/>
+        <property name="password" value="a3a85"/>
+        <property name="userName" value="Ira"/>
+    </bean>
+
+    <bean id="file" class="model.File">
+        <property name="name" value="Porno"/>
+        <property name="path" value="http://xxxl"/>
+    </bean>
+
+    <bean id="user" class="model.User">
+        <property name="name" value="User"/>
+        <property name="todo" ref="todo"/>
+        <property name="organization" ref="organization"/>
+    </bean>
+    <bean id="todo" class="model.Todo">
+        <property name="name" value="TODO"/>
+    </bean>
+    <bean id="organization" class="model.Organization">
+        <property name="name" value="PlayBoy"/>
+        <property name="city" value="California"/>
+    </bean>
+<bean id="userService" class="service.impl.UserServiceImpl"/>
+
+
+<bean id="monitoring" class="model.Monitoring">
+    <property name="sites">
+        <list>
+            <value>facebook.com</value>
+            <value>youtube.com</value>
+            <value>github.com</value>
+        </list>
+    </property>
+</bean>
+    <bean id="siteMonitoring" class="model.monitoring.SiteMonitoring">
+
+    </bean>
+
+</beans>
